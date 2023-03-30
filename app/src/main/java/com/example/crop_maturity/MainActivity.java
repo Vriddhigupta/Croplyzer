@@ -22,6 +22,10 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MainActivity extends AppCompatActivity {
         Button camera_button;
         Button forward;
@@ -47,8 +51,24 @@ public class MainActivity extends AppCompatActivity {
             camera_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-//                    startActivityForResult(intent, 7);
+                    Call<urlResponse> appResponseCall = loginApi.getService().getImage();
+                appResponseCall.enqueue(new Callback<urlResponse>() {
+                    @SuppressLint("SetTextI18n")
+                    @Override
+                    public void onResponse(Call<urlResponse> call, Response<urlResponse> response) {
+
+                        urlResponse eventResponse = response.body();
+                        System.out.println(eventResponse);
+                        Toast.makeText(MainActivity.this, "Coin Transferred successfully", Toast.LENGTH_LONG).show();
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<urlResponse> call, Throwable t) {
+                        String message = t.getLocalizedMessage();
+                        Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                    }
+                });
                 }
             });
         }

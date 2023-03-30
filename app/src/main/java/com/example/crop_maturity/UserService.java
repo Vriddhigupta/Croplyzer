@@ -12,8 +12,8 @@ import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface UserService {
-//    @POST("/login")
-//    Call<LoginResponse> loginuser(@Body UserRequest loginRequest);
+    @GET("/image")
+    Call<urlResponse> getImage();
 
 
 }
