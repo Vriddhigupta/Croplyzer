@@ -29,7 +29,7 @@ public class controlApi {
         // OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build();
 
         Retrofit retrofit= new Retrofit.Builder()
-                .baseUrl("")
+                .baseUrl("https://9d57-2405-201-1f-10f9-3572-16f-1fff-d193.in.ngrok.io/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okHttpClient)

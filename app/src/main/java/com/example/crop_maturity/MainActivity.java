@@ -35,9 +35,16 @@ public class MainActivity extends AppCompatActivity {
         Button backward;
         Button left;
         Button right;
+
         ImageView click_image;
         Button predbtn;
         TextView predtext;
+
+        Button armup;
+        Button armdown;
+        Button armforward;
+        Button armbackward;
+
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +58,12 @@ public class MainActivity extends AppCompatActivity {
             right = findViewById(R.id.right);
             predbtn = findViewById(R.id.predbtn);
             predtext =  findViewById(R.id.predtext);
+
+            armbackward = findViewById(R.id.armbackward);
+            armdown = findViewById(R.id.armdown);
+            armup = findViewById(R.id.armup);
+            armforward = findViewById(R.id.armforward);
+
             camera_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -94,6 +107,238 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<detectResponse> call, Throwable t) {
+                            String message = t.getLocalizedMessage();
+                            Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                }
+            });
+
+            //controls for wheels
+
+            forward.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    forwardRequest forwardrequest = new forwardRequest();
+                    forwardrequest.setService("forward");
+                    forwardrequest.setTime(3);
+
+                    Call<String> appResponseCall = controlApi.getService().getwheel1Movement(forwardrequest);
+                    appResponseCall.enqueue(new Callback<String>() {
+                        @Override
+                        public void onResponse(Call<String> call, Response<String> response) {
+                            String eventResponse = response.body();
+                            System.out.println(eventResponse);
+                            Toast.makeText(MainActivity.this, eventResponse, Toast.LENGTH_LONG).show();
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {
+                            String message = t.getLocalizedMessage();
+                            Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+
+                }
+            });
+
+            backward.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    forwardRequest forwardrequest = new forwardRequest();
+                    forwardrequest.setService("backward");
+                    forwardrequest.setTime(3);
+
+                    Call<String> appResponseCall = controlApi.getService().getwheel1Movement(forwardrequest);
+                    appResponseCall.enqueue(new Callback<String>() {
+                        @Override
+                        public void onResponse(Call<String> call, Response<String> response) {
+                            String eventResponse = response.body();
+                            System.out.println(eventResponse);
+                            Toast.makeText(MainActivity.this, eventResponse, Toast.LENGTH_LONG).show();
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {
+                            String message = t.getLocalizedMessage();
+                            Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                }
+            });
+
+            left.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    leftRequest leftrequest = new leftRequest();
+                    leftrequest.setService("left");
+
+
+                    Call<String> appResponseCall = controlApi.getService().getwheel2Movement(leftrequest);
+                    appResponseCall.enqueue(new Callback<String>() {
+                        @Override
+                        public void onResponse(Call<String> call, Response<String> response) {
+                            String eventResponse = response.body();
+                            System.out.println(eventResponse);
+                            Toast.makeText(MainActivity.this, eventResponse, Toast.LENGTH_LONG).show();
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {
+                            String message = t.getLocalizedMessage();
+                            Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                }
+            });
+
+            right.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    leftRequest leftrequest = new leftRequest();
+                    leftrequest.setService("right");
+
+
+                    Call<String> appResponseCall = controlApi.getService().getwheel2Movement(leftrequest);
+                    appResponseCall.enqueue(new Callback<String>() {
+                        @Override
+                        public void onResponse(Call<String> call, Response<String> response) {
+                            String eventResponse = response.body();
+                            System.out.println(eventResponse);
+                            Toast.makeText(MainActivity.this, eventResponse, Toast.LENGTH_LONG).show();
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {
+                            String message = t.getLocalizedMessage();
+                            Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                }
+            });
+
+            // controls for arm
+
+            armup.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    armRequest up = new armRequest();
+                    up.setService("motor1");
+                    up.setDirection("upward");
+
+
+                    Call<String> appResponseCall = controlApi.getService().getarmMovement(up);
+                    appResponseCall.enqueue(new Callback<String>() {
+                        @Override
+                        public void onResponse(Call<String> call, Response<String> response) {
+                            String eventResponse = response.body();
+                            System.out.println(eventResponse);
+                            Toast.makeText(MainActivity.this, eventResponse, Toast.LENGTH_LONG).show();
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {
+                            String message = t.getLocalizedMessage();
+                            Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                }
+            });
+
+            armdown.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    armRequest down = new armRequest();
+                    down.setService("motor1");
+                    down.setDirection("downward");
+
+
+                    Call<String> appResponseCall = controlApi.getService().getarmMovement(down);
+                    appResponseCall.enqueue(new Callback<String>() {
+                        @Override
+                        public void onResponse(Call<String> call, Response<String> response) {
+                            String eventResponse = response.body();
+                            System.out.println(eventResponse);
+                            Toast.makeText(MainActivity.this, eventResponse, Toast.LENGTH_LONG).show();
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {
+                            String message = t.getLocalizedMessage();
+                            Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                }
+            });
+
+            armforward.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    armRequest forward = new armRequest();
+                    forward.setService("motor2");
+                    forward.setDirection("forward");
+
+
+                    Call<String> appResponseCall = controlApi.getService().getarmMovement(forward);
+                    appResponseCall.enqueue(new Callback<String>() {
+                        @Override
+                        public void onResponse(Call<String> call, Response<String> response) {
+                            String eventResponse = response.body();
+                            System.out.println(eventResponse);
+                            Toast.makeText(MainActivity.this, eventResponse, Toast.LENGTH_LONG).show();
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {
+                            String message = t.getLocalizedMessage();
+                            Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                }
+            });
+
+            armbackward.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    armRequest backward = new armRequest();
+                    backward.setService("motor2");
+                    backward.setDirection("backward");
+
+
+                    Call<String> appResponseCall = controlApi.getService().getarmMovement(backward);
+                    appResponseCall.enqueue(new Callback<String>() {
+                        @Override
+                        public void onResponse(Call<String> call, Response<String> response) {
+                            String eventResponse = response.body();
+                            System.out.println(eventResponse);
+                            Toast.makeText(MainActivity.this, eventResponse, Toast.LENGTH_LONG).show();
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<String> call, Throwable t) {
                             String message = t.getLocalizedMessage();
                             Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
                         }

@@ -63,23 +63,21 @@
     </LinearLayout>
 
 
-
     <LinearLayout
         android:id="@+id/linear1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linear2"
-        android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        android:paddingHorizontal="20dp"
         android:gravity="center_horizontal"
-        >
-    <!-- add Camera Button to open the Camera -->
+        android:orientation="horizontal"
+        android:paddingHorizontal="30dp">
+        <!-- add Camera Button to open the Camera -->
 
         <Button
             android:id="@+id/left"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
@@ -91,8 +89,8 @@
         <Button
 
             android:id="@+id/camera_button"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
@@ -104,8 +102,8 @@
         <Button
 
             android:id="@+id/right"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
@@ -116,25 +114,25 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linear3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/linear3"
-        android:orientation="horizontal"
         android:layout_below="@id/linear1"
         android:layout_marginTop="10dp"
-        android:paddingHorizontal="20dp"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp">
 
         <Button
             android:id="@+id/armforward"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/onboarding_activity_button_3"
-            android:text="Arm Up"
+            android:text="Arm Forward"
             android:textColor="#FFFFFF" />
 
         <Button
@@ -150,14 +148,14 @@
 
         <Button
             android:id="@+id/armbackward"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/onboarding_activity_button_3"
-            android:text="Arm Down"
+            android:text="Arm Backward"
             android:textColor="#FFFFFF" />
 
     </LinearLayout>

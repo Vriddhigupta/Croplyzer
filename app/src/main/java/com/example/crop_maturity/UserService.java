@@ -19,7 +19,17 @@ public interface UserService {
     @GET("/detections")
     Call<detectResponse> getPrediction();
 
-    
+    @POST("/")
+    Call<String> getwheel1Movement(@Body forwardRequest forwardrequest);
+
+    @POST("/")
+    Call<String> getwheel2Movement(@Body leftRequest leftrequest);
+
+    @POST("/")
+    Call<String> getarmMovement(@Body armRequest armrequest);
+
+
+
 
 
 }
