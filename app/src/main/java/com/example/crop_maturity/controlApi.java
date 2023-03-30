@@ -1,6 +1,5 @@
 package com.example.crop_maturity;
 
-import java.net.CookieHandler;
 import java.net.CookieManager;
 import java.net.CookiePolicy;
 import java.util.concurrent.TimeUnit;
@@ -12,10 +11,9 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class loginApi {
+public class controlApi {
     public static Retrofit getRetrofit()
     {
-
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         CookieManager cookieHandler = new CookieManager();
@@ -28,14 +26,14 @@ public class loginApi {
                 .readTimeout(30, TimeUnit.SECONDS)
                 .build();
 
-       // OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build();
+        // OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build();
 
-            Retrofit retrofit= new Retrofit.Builder()
-                    .baseUrl("https://a901-2404-bd00-3-d7f7-ffbf-294-ffe0-9ab5.ngrok.io/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .client(okHttpClient)
-                    .build();
+        Retrofit retrofit= new Retrofit.Builder()
+                .baseUrl("")
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .client(okHttpClient)
+                .build();
         return retrofit;
 //        Retrofit retrofit = new Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl("https://rrr-server.onrender.com/")
 //                .client(okHttpClient)

@@ -14,29 +14,64 @@
         android:layout_marginTop="70dp"
         android:layout_marginBottom="10dp" />
 
-    <Button
-        android:id="@+id/forward"
+    <LinearLayout
+        android:id="@+id/linear2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/click_image"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/onboarding_activity_button_3"
-        android:paddingHorizontal="30dp"
-        android:text="Forward"
-        android:textColor="#FFFFFF" />
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp">
+
+        <Button
+            android:id="@+id/armup"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/onboarding_activity_button_3"
+            android:text="Arm Up"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/forward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/onboarding_activity_button_3"
+            android:text="Wheels Forward"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/armdown"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/onboarding_activity_button_3"
+            android:text="Arm Down"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+
 
     <LinearLayout
         android:id="@+id/linear1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/forward"
+        android:layout_below="@+id/linear2"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        android:paddingHorizontal="30dp"
+        android:paddingHorizontal="20dp"
         android:gravity="center_horizontal"
         >
     <!-- add Camera Button to open the Camera -->
@@ -50,7 +85,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/onboarding_activity_button_3"
-            android:text="Left"
+            android:text="Wheels Left"
             android:textColor="#FFFFFF" />
 
         <Button
@@ -76,21 +111,92 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/onboarding_activity_button_3"
-            android:text="Right"
+            android:text="Wheels Right"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/back"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/linear3"
+        android:orientation="horizontal"
         android:layout_below="@id/linear1"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
+        android:paddingHorizontal="20dp"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/armforward"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/onboarding_activity_button_3"
+            android:text="Arm Up"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linear1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/onboarding_activity_button_3"
+            android:text="Wheels Backward"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/armbackward"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/onboarding_activity_button_3"
+            android:text="Arm Down"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/predbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/onboarding_activity_button_3"
         android:paddingHorizontal="30dp"
-        android:text="Backward"
+        android:text="Get Maturity of the crop"
+        android:textColor="#FFFFFF"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/predtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/linear3"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:text="Predicting"
         android:textColor="#FFFFFF" />
+
+
+
+
 
 
 </RelativeLayout>

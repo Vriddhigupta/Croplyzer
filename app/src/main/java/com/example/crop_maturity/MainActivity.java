@@ -18,7 +18,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 
@@ -33,8 +36,9 @@ public class MainActivity extends AppCompatActivity {
         Button left;
         Button right;
         ImageView click_image;
+        Button predbtn;
+        TextView predtext;
 
-//        public static final int RequestPermissionCode = 1;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -45,22 +49,19 @@ public class MainActivity extends AppCompatActivity {
             backward = findViewById(R.id.back);
             left = findViewById(R.id.left);
             right = findViewById(R.id.right);
-
-//            EnableRuntimePermission();
-
+            predbtn = findViewById(R.id.predbtn);
+            predtext =  findViewById(R.id.predtext);
             camera_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Call<urlResponse> appResponseCall = loginApi.getService().getImage();
-                appResponseCall.enqueue(new Callback<urlResponse>() {
-                    @SuppressLint("SetTextI18n")
+                    appResponseCall.enqueue(new Callback<urlResponse>() {
                     @Override
                     public void onResponse(Call<urlResponse> call, Response<urlResponse> response) {
-
                         urlResponse eventResponse = response.body();
-                        System.out.println(eventResponse);
-                        Toast.makeText(MainActivity.this, "Coin Transferred successfully", Toast.LENGTH_LONG).show();
-
+                        System.out.println("hhhhhhhhhh"+eventResponse.getResponse());
+                        Toast.makeText(MainActivity.this, "Image clicked successfully", Toast.LENGTH_LONG).show();
+                        Picasso.get().load(eventResponse.getResponse()).into(click_image);
                     }
 
                     @Override
@@ -71,38 +72,36 @@ public class MainActivity extends AppCompatActivity {
                 });
                 }
             });
+
+            predbtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    Call<detectResponse> appResponseCall = loginApi.getService().getPrediction();
+                    appResponseCall.enqueue(new Callback<detectResponse>() {
+                        @Override
+                        public void onResponse(Call<detectResponse> call, Response<detectResponse> response) {
+                            detectResponse eventResponse = response.body();
+
+                            System.out.println(eventResponse.getResponse().get(0).getDetections().get(0).getMyclass());
+                            Toast.makeText(MainActivity.this, "Maturity predicted successfully", Toast.LENGTH_LONG).show();
+
+                            predbtn.setVisibility(View.GONE);
+                            predtext.setVisibility(View.VISIBLE);
+                            predtext.setText("The fruit is: "+ eventResponse.getResponse().get(0).getDetections().get(0).getMyclass());
+
+                        }
+
+                        @Override
+                        public void onFailure(Call<detectResponse> call, Throwable t) {
+                            String message = t.getLocalizedMessage();
+                            Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                }
+            });
         }
 
-//        @Override
-//        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//            super.onActivityResult(requestCode, resultCode, data);
-//            if (requestCode == 7 && resultCode == RESULT_OK) {
-//                Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-//                click_image.setImageBitmap(bitmap);
-//
-//            }
-//        }
-//        public void EnableRuntimePermission(){
-//            if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
-//                    Manifest.permission.CAMERA)) {
-//                Toast.makeText(MainActivity.this,"CAMERA permission allows us to Access CAMERA app",     Toast.LENGTH_LONG).show();
-//            } else {
-//                ActivityCompat.requestPermissions(MainActivity.this,new String[]{
-//                        Manifest.permission.CAMERA}, RequestPermissionCode);
-//            }
-//        }
-//        @Override
-//        public void onRequestPermissionsResult(int requestCode, String permissions[], int[] result) {
-//            super.onRequestPermissionsResult(requestCode, permissions, result);
-//            switch (requestCode) {
-//                case RequestPermissionCode:
-//                    if (result.length > 0 && result[0] == PackageManager.PERMISSION_GRANTED) {
-//                        Toast.makeText(MainActivity.this, "Permission Granted, Now your application can access CAMERA.", Toast.LENGTH_LONG).show();
-//                    } else {
-//                        Toast.makeText(MainActivity.this, "Permission Canceled, Now your application cannot access CAMERA.", Toast.LENGTH_LONG).show();
-//                    }
-//                    break;
-//            }
-//}
     }
 

@@ -1,13 +1,13 @@
 package com.example.crop_maturity;
 
 public class urlResponse {
-    String Response;
+    String response;
 
     public String getResponse() {
-        return Response;
+        return response;
     }
 
     public void setResponse(String response) {
-        Response = response;
+        this.response = response;
     }
 }
