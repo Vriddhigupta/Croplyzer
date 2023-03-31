@@ -6,8 +6,8 @@
 ## Team members
 * Vriddhi Gupta - vagupta_b19@it.vjti.ac.in
 * Neel Dandiwala - nddandiwala_b19@it.vjti.ac.in
-* Prasad Thakare - 
-* Tanish Sawant - 
+* Prasad Thakare - thakareprasad80@gmail.com
+* Tanish Sawant - tanish.sawant5@gmail.com
 
 ## Description of Solution
 
@@ -62,20 +62,3 @@ Tools and technologies that you learnt and used in the project.
 | ![](https://github.com/Vriddhigupta/Croplyzer/blob/main/Home_with_image.jpeg) | ![](https://github.com/Vriddhigupta/Croplyzer/blob/main/prediction.jpeg) |
 | :-------------: | :-------------:  | 
 |     Home Page with Image     |    Maturity Prediction   |    
-
-
-- **Deep Learning Model that will predict the drought condition**
- 
-<img src="https://github.com/Vriddhigupta/DryHunch/blob/main/WhatsApp%20Image%202023-02-25%20at%209.35.50%20AM.jpeg" width="1000">
-
-<img src="https://github.com/Vriddhigupta/DryHunch/blob/main/WhatsApp%20Image%202023-02-25%20at%209.36.07%20AM.jpeg" width="1000">
-
-<img src="https://github.com/Vriddhigupta/DryHunch/blob/main/WhatsApp%20Image%202023-02-25%20at%209.36.20%20AM.jpeg" width="1000">
-
-<img src="https://github.com/Vriddhigupta/DryHunch/blob/main/WhatsApp%20Image%202023-02-25%20at%209.39.26%20AM.jpeg" width="1000">
-
-<img src="https://github.com/Vriddhigupta/DryHunch/blob/main/WhatsApp%20Image%202023-02-25%20at%209.40.32%20AM.jpeg" width="1000">
-
-<img src="https://github.com/Vriddhigupta/DryHunch/blob/main/WhatsApp%20Image%202023-02-25%20at%209.40.56%20AM.jpeg" width="1000">
-
-<img src="https://github.com/Vriddhigupta/DryHunch/blob/main/WhatsApp%20Image%202023-02-25%20at%209.17.04%20AM.jpeg" width="1000">
