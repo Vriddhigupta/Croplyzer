@@ -55,13 +55,13 @@ Tools and technologies that you learnt and used in the project.
 * Increasing the accuracy of the existing Machine Learning Model as well as adding one more algorithm to predict in how many days a crop will possibly ripen along with giving market value for the crops based on their maturity.
 
 ## Screenshots
-| ![](https://github.com/Vriddhigupta/DryHunch/blob/main/Screenshot_2023-02-25-05-25-06-385_com.example.dryhunch%20(1).jpg) | ![](https://github.com/Vriddhigupta/DryHunch/blob/main/Screenshot_2023-02-25-05-25-04-473_com.example.dryhunch.jpg) | ![](https://github.com/Vriddhigupta/DryHunch/blob/main/Screenshot_2023-02-25-05-25-02-501_com.example.dryhunch.jpg) | ![](https://github.com/Vriddhigupta/DryHunch/blob/main/Screenshot_2023-02-25-08-40-11-512_com.example.dryhunch%20(1).jpg) |
+| ![](https://github.com/Vriddhigupta/Croplyzer/blob/main/Onboarding1.jpeg) | ![](https://github.com/Vriddhigupta/Croplyzer/blob/main/Onboarding2.jpeg) | ![](https://github.com/Vriddhigupta/Croplyzer/blob/main/Onboarding3.jpeg) | ![](https://github.com/Vriddhigupta/Croplyzer/blob/main/HomePage.jpeg) |
 | :-------------: | :-------------:  | :-------------:  | :-------------:  |
-|     Splash Screen1     |    Splash Screen2   |    Instruction Page     |      HomePage     |
+|     Onboarding Screen1     |    Onboarding Screen2   |    Onboarding Screen3     |      HomePage     |
 
-| ![](https://github.com/Vriddhigupta/DryHunch/blob/main/Screenshot_2023-02-25-05-24-51-065_com.example.dryhunch.jpg) | ![](https://github.com/Vriddhigupta/DryHunch/blob/main/Screenshot_2023-02-25-05-24-53-135_com.example.dryhunch%20(1).jpg) | ![](https://github.com/Vriddhigupta/DryHunch/blob/main/Screenshot_2023-02-25-05-24-58-007_com.example.dryhunch.jpg) |
-| :-------------: | :-------------:  | :-------------:  | 
-|     Prediction Page     |    Suggestions   |    Weather Details    | 
+| ![](https://github.com/Vriddhigupta/Croplyzer/blob/main/Home_with_image.jpeg) | ![](https://github.com/Vriddhigupta/Croplyzer/blob/main/prediction.jpeg) |
+| :-------------: | :-------------:  | 
+|     Home Page with Image     |    Maturity Prediction   |    
 
 
 - **Deep Learning Model that will predict the drought condition**
