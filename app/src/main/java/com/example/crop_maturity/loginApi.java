@@ -31,7 +31,7 @@ public class loginApi {
        // OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build();
 
             Retrofit retrofit= new Retrofit.Builder()
-                    .baseUrl("https://a901-2404-bd00-3-d7f7-ffbf-294-ffe0-9ab5.ngrok.io/")
+                    .baseUrl("https://398f-2409-4040-e9c-a064-c00b-70dc-e5e-7ade.ngrok.io/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .client(okHttpClient)

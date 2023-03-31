@@ -100,7 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/montserrat_semibold"
         android:text="Know crops better"
@@ -119,15 +119,17 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/sarabun_regular"
-        android:text="@string/demo_content"
+        android:text="The machine learning model is used to analyze the marketable maturity of crops, providing farmers with a generalized range of days when they are beginning to ripen. This model helps farmers detect their maturity and view the ripeness of the crops, thus protecting them from damage and loss of crops."
         android:textAlignment="center"
         android:textColor="#FFFFFF"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
-        tools:text="@string/demo_content" />
+        tools:text="The machine learning model is used to analyze the marketable maturity of crops, providing farmers with a generalized range of days when they are beginning to ripen. This model helps farmers detect their maturity and view the ripeness of the crops, thus protecting them from damage and loss of crops." />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline12"

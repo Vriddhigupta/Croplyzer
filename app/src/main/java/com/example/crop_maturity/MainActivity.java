@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.hardware.Camera;
 import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
@@ -21,9 +22,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView click_image;
         Button predbtn;
         TextView predtext;
+        TextView condtext;
 
         Button armup;
         Button armdown;
@@ -58,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
             right = findViewById(R.id.right);
             predbtn = findViewById(R.id.predbtn);
             predtext =  findViewById(R.id.predtext);
+            condtext = findViewById(R.id.condtext);
 
             armbackward = findViewById(R.id.armbackward);
             armdown = findViewById(R.id.armdown);
@@ -67,18 +75,21 @@ public class MainActivity extends AppCompatActivity {
             camera_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Call<urlResponse> appResponseCall = loginApi.getService().getImage();
-                    appResponseCall.enqueue(new Callback<urlResponse>() {
+                    Call<detectResponse> appResponseCall = loginApi.getService().getPrediction();
+                    appResponseCall.enqueue(new Callback<detectResponse>() {
                     @Override
-                    public void onResponse(Call<urlResponse> call, Response<urlResponse> response) {
-                        urlResponse eventResponse = response.body();
-                        System.out.println("hhhhhhhhhh"+eventResponse.getResponse());
+                    public void onResponse(Call<detectResponse> call, Response<detectResponse> response) {
+                        detectResponse eventResponse = response.body();
+                        System.out.println(eventResponse.getResponse());
+                        String url = eventResponse.getCameraImage();
                         Toast.makeText(MainActivity.this, "Image clicked successfully", Toast.LENGTH_LONG).show();
-                        Picasso.get().load(eventResponse.getResponse()).into(click_image);
+                       Picasso.get().load(url).memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE).networkPolicy(NetworkPolicy.NO_CACHE).into(click_image);
+                      //  click_image.setImageBitmap(getBitmapFromURL(url));
+//                        Picasso.with(getApplicationContext()).invalidate(file);
                     }
 
                     @Override
-                    public void onFailure(Call<urlResponse> call, Throwable t) {
+                    public void onFailure(Call<detectResponse> call, Throwable t) {
                         String message = t.getLocalizedMessage();
                         Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
                     }
@@ -92,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
                     Call<detectResponse> appResponseCall = loginApi.getService().getPrediction();
                     appResponseCall.enqueue(new Callback<detectResponse>() {
+                        @SuppressLint("SetTextI18n")
                         @Override
                         public void onResponse(Call<detectResponse> call, Response<detectResponse> response) {
                             detectResponse eventResponse = response.body();
@@ -102,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                             predbtn.setVisibility(View.GONE);
                             predtext.setVisibility(View.VISIBLE);
                             predtext.setText("The fruit is: "+ eventResponse.getResponse().get(0).getDetections().get(0).getMyclass());
+                            condtext.setText((int) eventResponse.getResponse().get(0).getDetections().get(0).getConfidence()+" %");
 
                         }
 
@@ -122,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     forwardRequest forwardrequest = new forwardRequest();
                     forwardrequest.setService("forward");
-                    forwardrequest.setTime(3);
+                    forwardrequest.setTime(1);
 
                     Call<String> appResponseCall = controlApi.getService().getwheel1Movement(forwardrequest);
                     appResponseCall.enqueue(new Callback<String>() {
@@ -151,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
 
                     forwardRequest forwardrequest = new forwardRequest();
                     forwardrequest.setService("backward");
-                    forwardrequest.setTime(3);
+                    forwardrequest.setTime(1);
 
                     Call<String> appResponseCall = controlApi.getService().getwheel1Movement(forwardrequest);
                     appResponseCall.enqueue(new Callback<String>() {
@@ -347,6 +360,24 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
+    public static Bitmap getBitmapFromURL(String src) {
+        try {
+            Log.e("src",src);
+            URL url = new URL(src);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setDoInput(true);
+            connection.connect();
+            InputStream input = connection.getInputStream();
+            Bitmap myBitmap = BitmapFactory.decodeStream(input);
+            Log.e("Bitmap","returned");
+            return myBitmap;
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.e("Exception",e.getMessage());
+            return null;
+        }
+    }
 
     }
 
