@@ -48,7 +48,7 @@ Tools and technologies that you learnt and used in the project.
 
 ## Flowchart
 
-<img src="https://github.com/Vriddhigupta/DryHunch/blob/main/dryhunch.drawio%20(1).png" width="1000">
+<img src="https://github.com/Vriddhigupta/Croplyzer/blob/main/croplyzer.drawio.png" width="1000">
 
 ## Future scope
 * Making the application an intuitive and multilingual Android app for farmers that allows them to control the bot in the form of speech or text. 
