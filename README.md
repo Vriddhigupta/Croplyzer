@@ -22,7 +22,7 @@
 * GitHub Repo link: [Link to android application](https://github.com/Vriddhigupta/Croplyzer)
 * Raspberry Pi code: [Link to Raspberry Pi bot](https://github.com/Neel-Dandiwala/GSC_2023-Pi_Bot)
 * ML Model for predicting maturity of crops: [Model code](https://github.com/TanishSawant/yolov3-tf2)
-* Application Working Video: [YouTube Video](https://youtube.com/shorts/gmhBfXCZm-g?feature=share)
+* Application Working Video: [YouTube Video](https://youtu.be/vlKvU2uJwhg)
 
 ## Technology stack
 
