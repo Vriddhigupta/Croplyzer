@@ -56,8 +56,9 @@ public class BerryAdapter extends RecyclerView.Adapter<BerryAdapter.ViewHolder> 
 
         berryModel model = detectionArrayList.get(position);
         holder.maturity.setText(model.getStatus());
-        holder.confidence.setText(model.getScore().toString());
+        holder.confidence.setText(model.getScore().toString()+ " "+"%");
         holder.market_price.setText(model.getPrice());
+        holder.label.setText("Strawberry: "+model.getLabel());
 
     }
 

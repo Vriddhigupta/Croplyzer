@@ -14,12 +14,27 @@
     <!--        android:text="Book Appointment"-->
     <!--        tools:ignore="MissingConstraints" />-->
 
+    <ImageView
+        android:id="@+id/wave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-300dp"
+        app:layout_constraintBottom_toTopOf="@+id/recyler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/wave2" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/wave"
+        android:layout_marginTop="250dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="29dp" />
 
 
     <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->

@@ -50,10 +50,13 @@ public class strawberry_recycler extends AppCompatActivity {
             @Override
             public void onResponse(Call<ArrayList<detectResponse>> call, Response<ArrayList<detectResponse>> response) {
                 ArrayList<detectResponse> eventResponse = response.body();
+                System.out.println(eventResponse.size());
+                detectionArrayList = new ArrayList<berryModel>();
                 for(int i=0;i<eventResponse.size();i++)
                 {
+                    System.out.println("=============="+eventResponse.get(i).status);
                     detectResponse response2 = eventResponse.get(i);
-                    detectionArrayList.add(new berryModel(response2.getStatus(),response2.getPrice(),response2.getScore()));
+                    detectionArrayList.add(new berryModel(response2.getStatus(),response2.getPrice(),response2.getScore(),(i+1)));
                 }
 
                 BerryAdapter berryAdapter = new BerryAdapter(strawberry_recycler.this, detectionArrayList);
@@ -67,7 +70,7 @@ public class strawberry_recycler extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ArrayList<detectResponse>> call, Throwable t) {
-                String message = t.getLocalizedMessage();
+                String message = "Please Click the photo first or click it properly";
                 Toast.makeText(strawberry_recycler.this, message, Toast.LENGTH_LONG).show();
             }
         });
