@@ -56,7 +56,7 @@ public class strawberry_recycler extends AppCompatActivity {
                 {
                     System.out.println("=============="+eventResponse.get(i).status);
                     detectResponse response2 = eventResponse.get(i);
-                    detectionArrayList.add(new berryModel(response2.getStatus(),response2.getPrice(),response2.getScore(),(i+1)));
+                    detectionArrayList.add(new berryModel(response2.getStatus(),response2.getPrice(),response2.getScore(),response2.getImg_label()));
                 }
 
                 BerryAdapter berryAdapter = new BerryAdapter(strawberry_recycler.this, detectionArrayList);

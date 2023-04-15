@@ -9,6 +9,15 @@ public class detectResponse {
     public String price;
     public Double score;
     public String status;
+    public Integer img_label;
+
+    public Integer getImg_label() {
+        return img_label;
+    }
+
+    public void setImg_label(Integer img_label) {
+        this.img_label = img_label;
+    }
 
     public String getPrice() {
         return price;

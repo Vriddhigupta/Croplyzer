@@ -1,7 +1,6 @@
 package com.example.crop_maturity;
 
 public class berryModel {
-
     public Integer label;
 public String status;
 public String price;
