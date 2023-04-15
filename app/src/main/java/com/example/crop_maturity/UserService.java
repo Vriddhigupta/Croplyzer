@@ -3,6 +3,7 @@ import com.google.gson.JsonElement;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -17,7 +18,7 @@ public interface UserService {
     Call<urlResponse> getImage();
 
     @GET("/detections")
-    Call<detectResponse> getPrediction();
+    Call<ArrayList<detectResponse>> getPrediction();
 
     @POST("/")
     Call<String> getwheel1Movement(@Body forwardRequest forwardrequest);

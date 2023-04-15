@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView click_image;
         Button predbtn;
-        TextView predtext;
-        TextView condtext;
+//        TextView predtext;
+//        TextView condtext;
 
         Button armup;
         Button armdown;
@@ -64,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
             left = findViewById(R.id.left);
             right = findViewById(R.id.right);
             predbtn = findViewById(R.id.predbtn);
-            predtext =  findViewById(R.id.predtext);
-            condtext = findViewById(R.id.condtext);
+//            predtext =  findViewById(R.id.predtext);
+//            condtext = findViewById(R.id.condtext);
 
             armbackward = findViewById(R.id.armbackward);
             armdown = findViewById(R.id.armdown);
@@ -75,13 +75,13 @@ public class MainActivity extends AppCompatActivity {
             camera_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Call<detectResponse> appResponseCall = loginApi.getService().getPrediction();
-                    appResponseCall.enqueue(new Callback<detectResponse>() {
+                    Call<urlResponse> appResponseCall = loginApi.getService().getImage();
+                    appResponseCall.enqueue(new Callback<urlResponse>() {
                     @Override
-                    public void onResponse(Call<detectResponse> call, Response<detectResponse> response) {
-                        detectResponse eventResponse = response.body();
+                    public void onResponse(Call<urlResponse> call, Response<urlResponse> response) {
+                        urlResponse eventResponse = response.body();
                         System.out.println(eventResponse.getResponse());
-                        String url = eventResponse.getCameraImage();
+                        String url = eventResponse.getResponse();
                         Toast.makeText(MainActivity.this, "Image clicked successfully", Toast.LENGTH_LONG).show();
                        Picasso.get().load(url).memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE).networkPolicy(NetworkPolicy.NO_CACHE).into(click_image);
                       //  click_image.setImageBitmap(getBitmapFromURL(url));
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<detectResponse> call, Throwable t) {
+                    public void onFailure(Call<urlResponse> call, Throwable t) {
                         String message = t.getLocalizedMessage();
                         Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
                     }
@@ -100,31 +100,8 @@ public class MainActivity extends AppCompatActivity {
             predbtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    Call<detectResponse> appResponseCall = loginApi.getService().getPrediction();
-                    appResponseCall.enqueue(new Callback<detectResponse>() {
-                        @SuppressLint("SetTextI18n")
-                        @Override
-                        public void onResponse(Call<detectResponse> call, Response<detectResponse> response) {
-                            detectResponse eventResponse = response.body();
-
-                            System.out.println(eventResponse.getResponse().get(0).getDetections().get(0).getMyclass());
-                            Toast.makeText(MainActivity.this, "Maturity predicted successfully", Toast.LENGTH_LONG).show();
-
-                            predbtn.setVisibility(View.GONE);
-                            predtext.setVisibility(View.VISIBLE);
-                            predtext.setText("The fruit is: "+ eventResponse.getResponse().get(0).getDetections().get(0).getMyclass());
-                            condtext.setText((int) eventResponse.getResponse().get(0).getDetections().get(0).getConfidence()+" %");
-
-                        }
-
-                        @Override
-                        public void onFailure(Call<detectResponse> call, Throwable t) {
-                            String message = t.getLocalizedMessage();
-                            Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
-                        }
-                    });
-
+                    Intent intent = new Intent(MainActivity.this, strawberry_recycler.class);
+                    startActivity(intent);
                 }
             });
 

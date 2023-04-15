@@ -6,65 +6,31 @@ import java.util.ArrayList;
 
 public class detectResponse {
 
-    class Detection{
-        @SerializedName("class")
-        public String myclass;
-        public double confidence;
+    public String price;
+    public Double score;
+    public String status;
 
-        public String getMyclass() {
-            return myclass;
-        }
-
-        public void setMyclass(String myclass) {
-            this.myclass = myclass;
-        }
-
-        public double getConfidence() {
-            return confidence;
-        }
-
-        public void setConfidence(double confidence) {
-            this.confidence = confidence;
-        }
+    public String getPrice() {
+        return price;
     }
 
-    class Response{
-        public ArrayList<Detection> detections;
-        public String image;
-
-        public ArrayList<Detection> getDetections() {
-            return detections;
-        }
-
-        public void setDetections(ArrayList<Detection> detections) {
-            this.detections = detections;
-        }
-
-        public String getImage() {
-            return image;
-        }
-
-        public void setImage(String image) {
-            this.image = image;
-        }
+    public void setPrice(String price) {
+        this.price = price;
     }
 
-    String cameraImage;
-    ArrayList<Response> response;
-
-    public String getCameraImage() {
-        return cameraImage;
+    public Double getScore() {
+        return score;
     }
 
-    public void setCameraImage(String cameraImage) {
-        this.cameraImage = cameraImage;
+    public void setScore(Double score) {
+        this.score = score;
     }
 
-    public ArrayList<Response> getResponse() {
-        return response;
+    public String getStatus() {
+        return status;
     }
 
-    public void setResponse(ArrayList<Response> response) {
-        this.response = response;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
